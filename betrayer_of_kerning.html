@@ -1,0 +1,98 @@
+<DOCTYPE html>
+  <html>
+  <head>
+    <style>
+    * {
+      font-family: Helvetica, sans-serif;
+    }
+    body {
+      background-color: #F3F1E9;
+      text-align: center;
+    }
+    h1 {
+      color: #3F464F;
+      font-size: 41px;
+      padding: 0;
+      margin: 0;
+    }
+    #container {
+      text-align: left;
+      width: 650px;
+      padding: 15px;
+      margin: 20px auto;
+      background-color: #E0DCC5;
+      border-radius: 15px;
+    }
+    #left {
+      width: 400px;
+      float: left;
+      margin: 5px;
+      color: #3F464F;
+    }
+    #left p {
+      margin: 0;
+    }
+    #right {
+      float:right;
+      width: 180px;
+      height: 100px;
+      text-align: center;
+      background-color: #b8b28c;
+      padding: 10px;
+      border-radius: 5px;
+      position: relative;
+    }
+    #right p {
+      line-height: 40px;
+    }
+    #right a {
+      text-align: center;
+      margin: 10px 10px 30px 10px;
+      padding: 10px;
+      background-color: #3F464F;
+      color: F3F1E9;
+      text-decoration: none;
+      border: 1px dashed #E0DCC5;
+    }
+    img.arrow {
+      position: absolute;
+      top: 17px;
+      left: 0px;
+      z-index: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="left">
+        <h1>Betrayer of Kerning</h1>
+        <p>Use this bookmarklet to nuke web sites. <br/>Drag the link to the right to your bookmark bar. <br/>Visit a site. Click the bookmark and use the slider.</p>
+        </div>
+        <div id="right">
+          <img src="arrow.png" class="arrow"/>
+          <p>
+        <a href="    javascript:javascript:(function(){
+            var div=document.createElement('div');
+            var myLetterSpacing=div.style.letterSpacing;
+            var myFontSize=div.style.fontSize;
+            div.innerHTML='<input type=\'range\' min=\'-10\' max=\'100\' value=\'0\' step=\'1\' onchange=\'window.letter_spacing(this.value)\' />';
+            window.letter_spacing=function(v){document.body.style.letterSpacing=v+'px !important';div.style.letterSpacing=myLetterSpacing+' !important'};
+            div.style.position='fixed';
+            div.style.left='0px';
+            div.style.top='0px';
+            div.style.backgroundColor='#eeeeee';
+            div.style.padding='10px';
+            div.style.opacity='0.8';
+            div.style.zIndex='1000';
+            document.body.appendChild(div);
+            })();
+          " class="draggable bookmarklet">Nuke site
+          </a>
+        <br/>
+        <span>Drag to bookmark bar</span>
+        </p>
+        </div>
+        <br style="clear: both"/>
+      </div>
+    </body>
+    </html>
