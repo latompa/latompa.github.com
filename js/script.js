@@ -7,12 +7,18 @@ var numCols = 4;
 var width = 100;
 var height = 100;
 var border = 2;
+var moving = false;
 
 function tileClick(event) {
   // is tile near the empty slot?
+  if(moving == true) {
+    return;
+  }
+  moving = true;
   clickedTileId = event.target.id;
-  if(Math.abs(board[clickedTileId].x - emptyX) <= 1 &&
-     Math.abs(board[clickedTileId].y - emptyY) <= 1 ) {
+  
+  if((Math.abs(board[clickedTileId].x - emptyX)) +
+     (Math.abs(board[clickedTileId].y - emptyY))  == 1) {
 
     moveX = emptyX*width; moveY = emptyY*height;
     newX = emptyX; newY = emptyY;
@@ -21,7 +27,11 @@ function tileClick(event) {
     board[clickedTileId].x = newX; board[clickedTileId].y = newY;       
 
     $(event.target).animate({"left": moveX+"px"}, "fast");
-    $(event.target).animate({"top":  moveY+"px"}, "fast");
+    $(event.target).animate({"top":  moveY+"px"}, "fast",function() {
+      moving = false;
+    });
+  } else  {
+    moving = false;
   }
 }
 
