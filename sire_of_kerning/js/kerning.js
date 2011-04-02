@@ -1,4 +1,8 @@
 fonts = [ "Allerta", "Luckiest Guy", "Oswald", "Candal", "Radley", "Droid Serif", "Chewy" ];
+clickedX = 0;
+clickedY = 0;
+mouseDown = false;
+selectedLetterIndex=0;
 
 function kernMe(value, position) {
   $("#kern_me span:nth-child("+(position+1)+")").css('letter-spacing', value + "px");
@@ -31,12 +35,45 @@ function addFontSelector() {
   });
 }
 
+function addHover() {
+  $('#kern_me span').hover(
+    function() {
+      $(this).addClass('hovered');
+      $(this).css('cursor','move');
+    },
+    function(e) {
+      $(this).removeClass('hovered');
+    });
+}
+
+function addClickAndDrag() {
+  $('#kern_me').mousedown(function (e){
+    mouseDown = true;
+    clickedX = e.pageX;
+    selectedLetterIndex = $('span').index($(e.target));
+    console.log('mouse ' + selectedLetterIndex);
+    console.log("click");
+  });
+  $('#kern_me').mouseup(function (){
+    mouseDown = false;
+    console.log("release");
+  });
+  $('#kern_me').mousemove(function (e){
+    if(mouseDown == true) {
+      letterSpacing = e.pageX - clickedX;
+      console.log('move ' +letterSpacing); 
+      kernMe(letterSpacing, selectedLetterIndex-1);
+    }
+  });
+}
+
+
 $(document).ready(function() {
   addFontLinks();
   addFontSelector();
   
   $("#kern_me").lettering();
-  addSliders('#kern_me');
+  //addSliders('#kern_me');
   
   $('#reset').click(function() {
     resetSliders();
@@ -46,4 +83,9 @@ $(document).ready(function() {
     resetSliders();
   });
   selectFont($('#font_selector option:selected').val());
+  
+  addHover();
+  addClickAndDrag();
+  $('body').disableSelection();
+  
 });
