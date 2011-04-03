@@ -5,7 +5,7 @@ mouseDown = false;
 selectedLetterIndex=0;
 
 function kernMe(value, position) {
-  $("#kern_me span:nth-child("+(position+1)+")").css('letter-spacing', value + "px");
+  $("#kern_me span:nth-child("+(position)+")").css('letter-spacing', value + "px");
 }
 
 function addSliders(selector) {
@@ -35,7 +35,7 @@ function addFontSelector() {
   });
 }
 
-function addHover() {
+function enableHover() {
   $('#kern_me span').hover(
     function() {
       $(this).addClass('hovered');
@@ -46,7 +46,15 @@ function addHover() {
     });
 }
 
-function addClickAndDrag() {
+function disableHover() {
+  $('#kern_me span').unbind("mouseenter mouseleave");
+}
+
+function disableClickAndDrag() {
+  $('#kern_me').unbind("mousedown mouseup mousemove");
+}
+
+function enableClickAndDrag() {
   $('#kern_me').mousedown(function (e){
     mouseDown = true;
     clickedX = e.pageX;
@@ -63,6 +71,12 @@ function addClickAndDrag() {
   });
 }
 
+function disableEdit() {
+  $('#kern_me').attr('contenteditable','false');
+}
+function enableEdit() {
+  $('#kern_me').attr('contenteditable','true');
+}
 
 $(document).ready(function() {
   addFontLinks();
@@ -71,8 +85,18 @@ $(document).ready(function() {
   $("#kern_me").lettering();
   //addSliders('#kern_me');
   
-  $('#reset').click(function() {
-    resetSliders();
+  $('#edit').click(function() {
+    disableHover();
+    disableClickAndDrag();
+    enableEdit();
+    $('body').enableSelection();
+  });
+  $('#kern').click(function() {
+    $("#kern_me").lettering();
+    enableHover();
+    enableClickAndDrag();
+    disableEdit();
+    $('body').disableSelection();
   });
   $('#font_selector').change(function(x) {
     selectFont(this.value);
@@ -80,8 +104,8 @@ $(document).ready(function() {
   });
   selectFont($('#font_selector option:selected').val());
   
-  addHover();
-  addClickAndDrag();
+  enableHover();
+  enableClickAndDrag();
   $('body').disableSelection();
   
 });

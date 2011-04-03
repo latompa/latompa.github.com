@@ -158,7 +158,7 @@ body { background:#f0f0f0;}
 #container {
 	width: 800px;
 	margin:50px auto;
-	padding:50px;
+	padding: 50px;
 	background:#fff;
 }
 
@@ -166,4 +166,14 @@ body { background:#f0f0f0;}
 .hovered {
   background-color:rgba(255,255,0,0.3);
   
+}
+#font_selector {
+  float: left;
+}
+#actions {
+  float: right;
+}
+#kern_me {
+  clear: both;
+  padding-top: 0.2em;
 }
