@@ -25,7 +25,7 @@ function selectFont(fontName) {
 
 function addFontLinks() {
   $(fonts).each(function(i) {
-    $('head').append('<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='+fonts[i]+'">');  
+    $('head').append('<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='+fonts[i]+'"></link>');  
   });
 }
 
@@ -51,17 +51,13 @@ function addClickAndDrag() {
     mouseDown = true;
     clickedX = e.pageX;
     selectedLetterIndex = $('span').index($(e.target));
-    console.log('mouse ' + selectedLetterIndex);
-    console.log("click");
   });
   $('#kern_me').mouseup(function (){
     mouseDown = false;
-    console.log("release");
   });
   $('#kern_me').mousemove(function (e){
     if(mouseDown == true) {
       letterSpacing = e.pageX - clickedX;
-      console.log('move ' +letterSpacing); 
       kernMe(letterSpacing, selectedLetterIndex-1);
     }
   });
