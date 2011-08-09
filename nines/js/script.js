@@ -30,7 +30,7 @@ var NineNinja =  {
     $('#decimals').html(nines);
     $('#downtime').html(downTime);
     NineNinja.resizeText('#percentage');
-    //NineNinja.resizeText('#howlong');
+    NineNinja.resizeText('#howlong');
   },
 
   resizeText: function(targetSelector) {
@@ -43,7 +43,7 @@ var NineNinja =  {
        currentSize = currentSize + direction;
        target.css('font-size', currentSize + "px");
        newWidth = target.textWidth();
-       if(Math.abs(newWidth - targetWidth) < 20) {
+       if((newWidth - targetWidth)*direction > direction) {
          break;
        }
      }
