@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/c226e47e9f.js"></script>
+  <link rel="stylesheet" type="text/css" href="main.css"/>
+</head>
+<body>
+  <div class="container">
+
+  <div class="stage">
+    <ol class="fruits">
+      <li data-type="A" data-number="1" class="apple"></li>
+      <li data-type="A" data-number="2" class="apple"></li>
+      <li data-type="B" data-number="1" class="banana"></li>
+      <li data-type="B" data-number="2" class="banana"></li>
+      <li data-type="C" data-number="1" class="grape"></li>
+      <li data-type="C" data-number="2" class="grape"></li>
+      <li data-type="D" data-number="1" class="greengrape"></li>
+      <li data-type="D" data-number="2" class="greengrape"></li>
+      <li data-type="E" data-number="1" class="pineapple"></li>
+      <li data-type="E" data-number="2" class="pineapple"></li>
+    </ol>
+  </div>
+
+  <div class="meetup-calendar">
+    <ol class="meetups">
+      <li data-mnr="1">meetup 1</li><li data-mnr="2">meetup 1</li>
+    </ol>
+    <ol class="meetups">
+      <li data-mnr="3">meetup 2</li> <li data-mnr="4">meetup 2</li>
+    </ol>
+    <ol class="meetups">
+      <li data-mnr="5">meetup 3</li><li data-mnr="6">meetup 3</li>
+    </ol>
+    <ol class="meetups">
+      <li data-mnr="7">meetup 4</li> <li data-mnr="8">meetup 4</li>
+    </ol>
+    <ol class="meetups">
+      <li data-mnr="9">meetup 5</li><li data-mnr="10">meetup 5</li>
+    </ol>
+  </div>
+
+  <div class="rules">
+    <p class="rule1">
+      <span class="pass" style="display: none"><i class="fa fa-thumbs-o-up"></i></span>
+      <span class="fail" style="display: none"><i class="fa fa-times"></i></span>
+      All meetups filled
+    </p>
+    <p class="rule2">
+      <span class="pass" style="display: none"><i class="fa fa-thumbs-o-up"></i></span>
+      <span class="fail" style="display: none"><i class="fa fa-times"></i></span>
+      Different fruits on one meetup
+    </p>
+    <p class="rule3">
+      <span class="pass" style="display: none"><i class="fa fa-thumbs-o-up"></i></span>
+      <span class="fail" style="display: none"><i class="fa fa-times"></i></span>
+      Different fruits on consecutive meetups
+    </p>
+  </div>
+</div>
+
+</body>
+  <script src="main.js"></script>
+</html>

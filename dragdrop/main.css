@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  margin: 0 auto;
+  min-width: 700px;
+}
+ol {
+  list-style-type: none;
+}
+
+.stage {
+  border: 1px solid #ddd;
+  background: #f0f0f0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+ol.fruits li {
+  display: inline-block;
+  background: #ddd;
+  margin: 0;
+  width: 75px;
+  height: 75px;
+}
+
+ol.fruits li.apple {
+  background: url(images/apple.png) no-repeat;
+  background-size: 75px 75px;
+}
+ol.fruits li.grape {
+  background: url(images/grape.png) no-repeat;
+  background-size: 75px 75px;
+}
+ol.fruits li.greengrape {
+  background: url(images/greengrape.png) no-repeat;
+  background-size: 75px 75px;
+}
+ol.fruits li.pineapple {
+  background: url(images/pineapple.png) no-repeat;
+  background-size: 75px 75px;
+}
+ol.fruits li.banana {
+  background: url(images/banana.png) no-repeat;
+  background-size: 75px 75px;
+}
+
+.meetup-calendar {
+  margin: 20px auto 20px auto;
+  text-align: center;
+}
+
+ol.meetups {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+ol.meetups li {
+  padding: 15px;
+  width: 75px;
+  height: 75px;
+  background: #eee;
+  border: 1px dashed #999;
+}
+
+ol.meetups li.ui-droppable-hover {
+  background: yellow;
+  border: 1px solid #333;
+}
+
+ol.meetups li.ui-droppable {
+  color: #999;
+}
+
+.rules {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.rules p.rule-fail {
+  text-decoration: line-through;
+}
